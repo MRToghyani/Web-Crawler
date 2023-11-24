@@ -1,6 +1,3 @@
-from selenium import webdriver
-# from stem import Signal
-# from stem.control import Controller
 import requests
 from bs4 import BeautifulSoup
 from urllib import robotparser
@@ -8,7 +5,6 @@ import random
 import time
 import multiprocessing
 import traceback
-# import toripchanger
 from random import shuffle
 import pandas as pd
 from multiprocessing import Pool
@@ -71,15 +67,6 @@ def clear_table(table_name):
         cursor.close()
         conn.close()
 
-# if __name__ == '__main__':
-#     freeze_support()
-
-#     # Example data to insert into the database
-#     data_to_insert = [('Johsdfn Doe', "dfsf"), ('Jfdne Doe', "df"), ('Bob Smith', "ssss")]
-
-#     # Use multiprocessing Pool to perform operations concurrently
-#     with Pool() as pool:
-#         pool.map(perform_database_operation, data_to_insert)
 
 def request_main3(url):
     l=[]
@@ -113,9 +100,7 @@ def request_main3(url):
                         
             else:
                 print(response.status_code , ' ' , url) #,' moving to tor'
-            #     queue_tor.put(url)
-            # time.sleep(sleep_time)
-            # # return response 
+
             # print(l)
             return l
     except requests.ConnectionError as e:
