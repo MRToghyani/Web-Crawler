@@ -15,10 +15,10 @@ import textwrap
 
 # Connection details
 db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': 'your_password',
-    'database': 'crawl',
+    'host': 'host',
+    'user': 'user',
+    'password': 'password',
+    'database': 'database',
 }
 
 def perform_database_operation(data):
