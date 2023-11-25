@@ -7,7 +7,6 @@ import multiprocessing
 import traceback
 from random import shuffle
 import pandas as pd
-from multiprocessing import Pool
 import mysql.connector
 from mysql.connector import pooling
 from multiprocessing import Pool, freeze_support
@@ -24,7 +23,7 @@ db_config = {
 def perform_database_operation(data):
     try:
         # Create a new connection pool for each worker process
-        connection_pool = pooling.MySQLConnectionPool(pool_name="my_pool", pool_size=15, **db_config)
+        connection_pool = pooling.MySQLConnectionPool(pool_name="my_pool", pool_size=5, **db_config)
 
         # Acquire a connection from the pool
         connection = connection_pool.get_connection()
@@ -132,7 +131,7 @@ if __name__ == '__main__':
     for i in range(10):
         
         l1= []
-        with Pool(processes=10) as pool:
+        with Pool(processes=4) as pool:
             l1 = pool.map(request_main3,l0)
         pool.join()
         cashe = cashe + l0
